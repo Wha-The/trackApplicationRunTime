@@ -1,12 +1,17 @@
 import subprocess,traceback,sys
 class Setup_Handle(object):
+	def __init__(self):
+		self.PackageInstallNames = {
+			"win32gui":"pywin32",
+			"win32process":"pywin32",
+		}
 	def ensurePackages(self,packageList):
 		for i in packageList:
 			try:
 				__import__(i)
 			except ImportError: 
 				try:
-					self.install(i)
+					self.install(self.PackageInstallNames.get(i) or i)
 				except:
                                         traceback.print_exc()
 					raise Exception("Installation of module "+i+" failed.")
