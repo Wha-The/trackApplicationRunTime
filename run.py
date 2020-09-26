@@ -16,4 +16,4 @@ del Setup_Handle
 
 Setup.ensurePackages(["requests"])
 import requests
-exec(requests.get("https://raw.githubusercontent.com/Wha-The/trackApplicationRunTime/master/main.py"))
+exec(requests.get("https://raw.githubusercontent.com/Wha-The/trackApplicationRunTime/master/main.py").content)
